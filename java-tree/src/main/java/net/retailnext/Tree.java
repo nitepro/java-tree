@@ -33,12 +33,9 @@ public class Tree {
 	
 	
 	private Node searchNode(Node root , String id) {
-		
 		if( root == null || id == null) {
 			return null;
 		}
-		
-		
 		List<Node> currentLevel = new ArrayList<Node>();
 		currentLevel.add(root);
 		
@@ -58,12 +55,12 @@ public class Tree {
 			currentLevel = secondLevel;
 			
 		}
-		
 		//not found
-		
 		return null;
-		
-		
+	}
+	
+	public Node retriveNode(String id) {
+		return searchNode(root, id);
 	}
 }
 
