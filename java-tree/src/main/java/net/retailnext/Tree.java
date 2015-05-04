@@ -20,6 +20,7 @@ public class Tree {
 		
 		if(this.root == null) {
 			this.root = n;
+			return;
 		}
 		
 		if(targetNode == null) {
