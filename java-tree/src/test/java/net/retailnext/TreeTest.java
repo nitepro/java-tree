@@ -23,8 +23,8 @@ public class TreeTest {
     String child2Id = t.addNode(rootNode.getId(),child1);
 
     Node child22 = new Node();
-    child1.setName("Child 22");
-    t.addNode(child2.getId(), child1);
+    child22.setName("Child 22");
+    t.addNode(child2.getId(), child22);
 
     rootNode = t.retrieveNode(rootNode.getId());
     Assert.assertTrue(rootNode.getChildren().size()==2);
