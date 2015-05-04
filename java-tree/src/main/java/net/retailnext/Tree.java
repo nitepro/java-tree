@@ -65,5 +65,9 @@ public class Tree {
 	public Node retrieveNode(String id) {
 		return searchNode(root, id);
 	}
+
+  public boolean deleteNode(String id ) throws Exception {
+    return true;
+  }
 }
 
