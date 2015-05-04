@@ -23,7 +23,7 @@ public class Tree {
 		}
 
 		
-		Node targetNode = searchNode(this.root, id);
+		Node targetNode = searchNodeDFS(this.root, id);
 		
 		
 		if(targetNode == null) {
@@ -55,15 +55,41 @@ public class Tree {
 				secondLevel.addAll(n.getChildren());
 			}
 			
-			currentLevel = secondLevel;
+			currentLevel = new ArrayList<Node>();
+			
+			if(!secondLevel.isEmpty()) {
+				currentLevel.addAll(secondLevel);
+			}
 			
 		}
 		//not found
 		return null;
 	}
 	
+	
+	public Node searchNodeDFS(Node root , String id) {
+		
+		if(root == null) {
+			return null;
+		}
+		
+		if(root.getId().equals(id)) {
+			return root;
+		}
+		
+		for(Node n : root.getChildren()) {
+			
+			Node t = searchNodeDFS(n, id);
+			
+			if(t != null) {
+				return t;
+			}
+		}
+		
+		return null;
+	}
 	public Node retrieveNode(String id) {
-		return searchNode(root, id);
+		return searchNodeDFS(root, id);
 	}
 }
 
