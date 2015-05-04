@@ -62,7 +62,7 @@ public class Tree {
 		return null;
 	}
 	
-	public Node retriveNode(String id) {
+	public Node retrieveNode(String id) {
 		return searchNode(root, id);
 	}
 }
