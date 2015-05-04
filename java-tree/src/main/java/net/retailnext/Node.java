@@ -2,6 +2,7 @@ package net.retailnext;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Node {
 
@@ -13,6 +14,7 @@ public class Node {
 	private List<Node> children;
 	
 	public Node() {
+		this.id = UUID.randomUUID().toString();
 		this.children = new ArrayList<Node>();
 	}
 

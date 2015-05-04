@@ -34,7 +34,7 @@ public class Tree {
 	
 	private Node searchNode(Node root , String id) {
 		
-		if( root == null) {
+		if( root == null || id == null) {
 			return null;
 		}
 		
