@@ -31,40 +31,10 @@ public class Tree {
 		}
 		
 	    targetNode.addChild(n);
+	    n.setParentID(targetNode.getId());
 		return n.getId();
 	}
 	
-	
-	private Node searchNode(Node root , String id) {
-		if( root == null || id == null) {
-			return null;
-		}
-		List<Node> currentLevel = new ArrayList<Node>();
-		currentLevel.add(root);
-		
-		List<Node> secondLevel = new ArrayList<Node>();
-		
-		
-		while(!currentLevel.isEmpty()) {
-			
-			
-			for(Node n : currentLevel) {
-				if(n.getId().equals(id)) {
-					return n;
-				}
-				secondLevel.addAll(n.getChildren());
-			}
-			
-			currentLevel = new ArrayList<Node>();
-			
-			if(!secondLevel.isEmpty()) {
-				currentLevel.addAll(secondLevel);
-			}
-			
-		}
-		//not found
-		return null;
-	}
 	
 	
 	public Node searchNodeDFS(Node root , String id) {
@@ -91,5 +61,16 @@ public class Tree {
 	public Node retrieveNode(String id) {
 		return searchNodeDFS(root, id);
 	}
+
+  public boolean deleteNode(String id ) throws Exception {
+	 
+	  
+	  
+	Node targetNode = searchNodeDFS(root, id);
+	Node parent = searchNodeDFS(root, targetNode.getParentID());
+	
+	parent.getChildren().remove(targetNode);
+    return true;
+  }
 }
 

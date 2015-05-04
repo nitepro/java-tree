@@ -9,7 +9,7 @@ public class Node {
 	private String id;
 	private String name;
 	
-	
+	private String parentID;
 	private String attr;
 	private List<Node> children;
 	
@@ -51,6 +51,14 @@ public class Node {
 	}
 	
 	
+	public String getParentID() {
+		return parentID;
+	}
+
+	public void setParentID(String parentID) {
+		this.parentID = parentID;
+	}
+
 	public void addChild(Node n) {
 		this.children.add(n);
 	}
