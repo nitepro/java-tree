@@ -14,21 +14,24 @@ public class Tree {
 	}
 	
 	
-	public void addNode(String id , Node n) throws Exception {
+	public String addNode(String id , Node n) throws Exception {
 		
-		Node targetNode = searchNode(this.root, id);
 		
 		if(this.root == null) {
 			this.root = n;
-			return;
+			return n.getId();
 		}
+
+		
+		Node targetNode = searchNode(this.root, id);
+		
 		
 		if(targetNode == null) {
 			throw new Exception("Target Node with " + id + " not found");
 		}
 		
 	    targetNode.addChild(n);
-		
+		return n.getId();
 	}
 	
 	
